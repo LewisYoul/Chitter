@@ -51,6 +51,12 @@ class Chitter < Sinatra::Base
     end
   end
 
+  get '/signout' do
+    @current_user = nil
+    session.clear
+    redirect '/posts'
+  end
+
   get '/sessions/new' do
     erb(:'sessions/new')
   end

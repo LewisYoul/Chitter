@@ -17,4 +17,12 @@ feature 'sign up' do
     sign_up
     expect(page).to have_content('Logged in as Megadrive')
   end
+  scenario 'sign up button not present after signing up' do
+    sign_up
+    expect(page).not_to have_content('Sign Up')
+  end
+  scenario 'sign in button not present after signing up' do
+    sign_up
+    expect(page).not_to have_content('Sign In')
+  end
 end
